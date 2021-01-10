@@ -3,7 +3,7 @@
 # Declare variables to be passed into your templates.
 
 ## The cluster number of nodes
-replicas: 1
+replicas: 2
 
 ## MySQL connect credentials, those credentials will be provisioned in the cluster
 rootPassword: ""
@@ -14,6 +14,11 @@ appDatabase: ""
 podSpec:
 mysqlConf:
 volumeSpec:
+  persistentVolumeClaim:
+  accessModes: ["ReadWriteOnce"]       
+    resources:         
+      requests:
+        storage: 1Gi
 
 serverIDOffset:
 
